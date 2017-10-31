@@ -25,3 +25,8 @@ for(coluna in 1:ncol(alemanha_ib)){
 }
 
 dados_alemanha_vizinhos <- matrix(NA, nrow = ncol(alemanha_ib_similaridade), ncol = 11, dimnames = list(colnames(alemanha_ib_similaridade)))
+
+#encontrando os vizinhos
+for(elemento in 1:ncol(alemanha_ib)) {
+  dados_alemanha_vizinhos[elemento,] <- (t(head(n=11, rownames(alemanha_ib_similaridade[order(alemanha_ib_similaridade[,elemento], decreasing = T),])[elemento])))
+}
